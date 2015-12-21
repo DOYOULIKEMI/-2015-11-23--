@@ -65,27 +65,15 @@
                 android:textColor="@color/white"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/editText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/negativeButton"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="51dp"
-                android:ems="10"
-                android:hint="请输入密码" />
-
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editText1"
                 android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="57dp"
                 android:ems="10"
-                 android:hint="请输入相应的密码">
-
-                <requestFocus />
-            </AutoCompleteTextView>
+                android:hint="请输入相应的密码" />
 
         </RelativeLayout>
 

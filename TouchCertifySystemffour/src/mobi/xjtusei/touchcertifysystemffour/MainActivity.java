@@ -97,13 +97,14 @@ public class MainActivity extends Activity {
             	//((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.practice_touch));
                 nameInput = new EditText(MainActivity.this);
            	    LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
-           	    autoTv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
 			    View layout=inflater.inflate(R.layout.input_alertdialog,null);					
 			    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-			    nameInput=(EditText)layout.findViewById(R.id.editText1);
+			    //nameInput=(EditText)layout.findViewById(R.id.editText1);
+           	    autoTv = (AutoCompleteTextView)layout.findViewById(R.id.autoCompleteTextView1);
+           	    initAutoComplete("history",autoTv);  
 			    Button positive_btn=(Button) layout.findViewById(R.id.positiveButton);
 				Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
-			    nameInput.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+			   // nameInput.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
 			    builder.setView(layout);
            	    builder.setCancelable(false);
 				final AlertDialog alg=builder.create();
@@ -113,7 +114,8 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                         	alg.cancel();
-                            String username1 = nameInput.getText().toString();
+                        	saveHistory("history",autoTv); 
+                            String username1 = autoTv.getText().toString();
                             try {
                                 username = idtoname(username1);
                             } catch (Exception e) {
@@ -393,13 +395,13 @@ public class MainActivity extends Activity {
         String longhistory = sp.getString("history", "nothing");  
         String[]  hisArrays = longhistory.split(",");  
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,  
-                R.layout.input_alertdialog, hisArrays);  
+                R.layout.line_list, hisArrays);  
         //只保留最近的50条的记录  
         if(hisArrays.length > 50){  
             String[] newArrays = new String[50];  
             System.arraycopy(hisArrays, 0, newArrays, 0, 50);  
             adapter = new ArrayAdapter<String>(this,  
-            		 R.layout.input_alertdialog, newArrays);  
+            		 R.layout.line_list, newArrays);  
         }  
         auto.setAdapter(adapter);  
         auto.setDropDownHeight(350);  

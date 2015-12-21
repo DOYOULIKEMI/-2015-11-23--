@@ -214,13 +214,12 @@ containing a value of this type.
     public static final class id {
         public static final int EditText01=0x7f0a000f;
         public static final int approveBtn=0x7f0a000b;
-        public static final int autoCompleteTextView1=0x7f0a0017;
+        public static final int autoCompleteTextView1=0x7f0a0016;
         public static final int back_register=0x7f0a000e;
         public static final int back_set=0x7f0a0011;
         public static final int btn_cancel=0x7f0a001d;
         public static final int btn_reset=0x7f0a001c;
         public static final int cancel=0x7f0a0008;
-        public static final int editText1=0x7f0a0016;
         public static final int imageView1=0x7f0a0004;
         public static final int menu_settings=0x7f0a001e;
         public static final int negativeButton=0x7f0a0002;
@@ -232,6 +231,7 @@ containing a value of this type.
         public static final int radioRight=0x7f0a0019;
         public static final int radio_confirm=0x7f0a001b;
         public static final int registerBtn=0x7f0a000c;
+        public static final int rowtv1=0x7f0a0017;
         public static final int seekArc=0x7f0a0013;
         public static final int seekArcContainer=0x7f0a0012;
         public static final int seekArcProgresses=0x7f0a0014;
@@ -252,12 +252,13 @@ containing a value of this type.
         public static final int activity_set=0x7f030004;
         public static final int alertdialog_success=0x7f030005;
         public static final int input_alertdialog=0x7f030006;
-        public static final int radio=0x7f030007;
-        public static final int reset=0x7f030008;
-        public static final int seekbar_style=0x7f030009;
-        public static final int seekbar_thumb=0x7f03000a;
-        public static final int testhint=0x7f03000b;
-        public static final int trained_hint=0x7f03000c;
+        public static final int line_list=0x7f030007;
+        public static final int radio=0x7f030008;
+        public static final int reset=0x7f030009;
+        public static final int seekbar_style=0x7f03000a;
+        public static final int seekbar_thumb=0x7f03000b;
+        public static final int testhint=0x7f03000c;
+        public static final int trained_hint=0x7f03000d;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
