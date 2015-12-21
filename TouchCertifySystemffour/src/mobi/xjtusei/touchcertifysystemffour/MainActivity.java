@@ -19,6 +19,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -375,4 +377,41 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this,Mserver.class);
 		this.startService(intent);
 	}
+    private void saveHistory(String field,AutoCompleteTextView auto) {  
+        String text = auto.getText().toString();  
+        SharedPreferences sp = getSharedPreferences("network_url", 0);  
+        String longhistory = sp.getString(field, "nothing");  
+        if (!longhistory.contains(text + ",")) {  
+            StringBuilder sb = new StringBuilder(longhistory);  
+            sb.insert(0, text + ",");  
+            sp.edit().putString("history", sb.toString()).commit();  
+        }  
+       }
+    private void initAutoComplete(String field,AutoCompleteTextView auto) {  
+        SharedPreferences sp = getSharedPreferences("network_url", 0);  
+        String longhistory = sp.getString("history", "nothing");  
+        String[]  hisArrays = longhistory.split(",");  
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,  
+                android.R.layout.simple_dropdown_item_1line, hisArrays);  
+        //只保留最近的50条的记录  
+        if(hisArrays.length > 50){  
+            String[] newArrays = new String[50];  
+            System.arraycopy(hisArrays, 0, newArrays, 0, 50);  
+            adapter = new ArrayAdapter<String>(this,  
+                    android.R.layout.simple_dropdown_item_1line, newArrays);  
+        }  
+        auto.setAdapter(adapter);  
+        auto.setDropDownHeight(350);  
+        auto.setThreshold(1);  
+        auto.setCompletionHint("最近的5条记录");  
+        auto.setOnFocusChangeListener(new View.OnFocusChangeListener() {  
+            @Override  
+            public void onFocusChange(View v, boolean hasFocus) {  
+                AutoCompleteTextView view = (AutoCompleteTextView) v;  
+                if (hasFocus) {  
+                        view.showDropDown();  
+                }  
+            }  
+        });  
+    }  
 }
