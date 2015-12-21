@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@drawable/bg_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="多指触控行为认证系统"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="231dp"
+            android:background="@drawable/bg_button" >
+
+            <Button
+                android:id="@+id/negativeButton"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="27dp"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@+id/positiveButton"
+                android:background="@drawable/select_button"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/negativeButton"
+                android:layout_alignBottom="@+id/negativeButton"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="135dp"
+                android:background="@drawable/select_button"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/negativeButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="51dp"
+                android:ems="10"
+                android:hint="请输入密码" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText1"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                 android:hint="请输入相应的密码">
+
+                <requestFocus />
+            </AutoCompleteTextView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

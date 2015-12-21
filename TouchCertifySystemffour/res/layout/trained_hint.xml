@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@drawable/bg_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="多指触控行为认证系统"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="231dp"
+            android:background="@drawable/bg_button" >
+             <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_above="@+id/positiveButton"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="25dp"
+                android:layout_marginLeft="100dp"
+                android:src="@drawable/success" />
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/imageView1"
+                android:layout_alignTop="@+id/negativeButton"
+                android:background="@drawable/select_button"
+                android:text="生成样本数据库"
+                 android:textSize="17sp"
+                android:textColor="@color/white" />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView1"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@+id/imageView1"
+                android:text="已经完成训练样本采集"
+                android:textColor="@color/black"
+                 android:layout_marginTop="20dp"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/negativeButton"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/textView2"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/select_button"
+                android:text="重新训练"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

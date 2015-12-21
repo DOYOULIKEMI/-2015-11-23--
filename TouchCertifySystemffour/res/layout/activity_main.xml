@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_page"
+    tools:context=".MainActivity"
+    android:layout_gravity="center"
+    android:gravity="center" >
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/line_new">
+        
+        <TableLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="center" 
+	        android:gravity="center">
+	
+	        <TableRow
+	            android:layout_weight="1"
+	            android:layout_gravity="center"
+	            android:gravity="center">
+	
+	            <ImageButton
+	                android:id="@+id/practiceBtn"
+	                android:layout_margin="10dp"
+	                android:layout_weight="1"
+	                android:layout_gravity="center"
+	                android:gravity="center"
+	                android:background="@drawable/practice" >
+	            </ImageButton>
+	
+	            <ImageButton
+	                android:id="@+id/approveBtn"
+	                android:layout_margin="10dp"
+	                android:layout_weight="1"
+	                android:layout_gravity="center"
+	                android:gravity="center"
+	                android:background="@drawable/approve" >
+	            </ImageButton>
+	            
+	        </TableRow>
+	
+	        <TableRow
+	            android:layout_weight="1"
+	            android:layout_gravity="center"
+	            android:gravity="center">
+	
+	            <ImageButton
+	                android:id="@+id/registerBtn"
+	                android:layout_margin="10dp"
+	                android:layout_weight="1"
+	                android:layout_gravity="center"
+	                android:gravity="center"
+	                android:background="@drawable/register" >
+	            </ImageButton>
+	
+	            <ImageButton
+	                android:id="@+id/setBtn"
+	                android:layout_margin="10dp"
+	                android:layout_weight="1"
+	                android:layout_gravity="center"
+	                android:gravity="center"
+	                android:background="@drawable/set" >
+	            </ImageButton>
+	        </TableRow>
+	    </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

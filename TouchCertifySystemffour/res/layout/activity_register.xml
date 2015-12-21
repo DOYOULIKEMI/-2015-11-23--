@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/registerbackgroung"
+    android:orientation="vertical" >
+    
+    <ImageButton
+        android:id="@+id/back_register"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    
+    <EditText
+        android:id="@+id/serverIP"
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:hint="请输入密码" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:hint="请再次输入密码" />
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="450dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:hint="请输入用户名" />
+      
+    <ImageButton
+        android:id="@+id/submitBtn_register"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/submit"/>
+
+</LinearLayout>

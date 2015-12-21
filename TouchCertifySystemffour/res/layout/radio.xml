@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+	<RadioGroup android:id="@+id/radio4test"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" 
+	    android:orientation="horizontal"
+	    android:layout_centerHorizontal="true">
+    
+	    <RadioButton android:id="@+id/radioRight" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:layout_marginLeft="50dip"
+			android:checked="true"
+			android:text="右手" /> 
+		<RadioButton android:id="@+id/radioLeft" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="120dip" 
+			android:text="左手" /> 
+	     
+	</RadioGroup>
+	
+	<LinearLayout
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio4test"
+        android:layout_centerHorizontal="true">
+	
+	<Button 
+	    android:id="@+id/radio_confirm"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="    确定    " >
+	</Button>
+<!-- 	<Button 
+	    android:id="@+id/radio_cancel"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="    取消    " >
+	</Button>	 -->
+	</LinearLayout>
+	
+</RelativeLayout>
+	
+	
