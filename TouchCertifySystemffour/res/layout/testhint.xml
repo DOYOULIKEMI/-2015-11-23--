@@ -40,39 +40,40 @@
             android:background="@drawable/bg_button" >
 
             <Button
-                android:id="@+id/positiveButton"
-                android:layout_width="180dp"
+                android:id="@+id/negativeButton"
+                android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="27dp"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@+id/positiveButton"
+                android:background="@drawable/select_button"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/negativeButton"
+                android:layout_alignBottom="@+id/negativeButton"
                 android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="32dp"
-                android:layout_marginLeft="180dp"
+                android:layout_marginLeft="135dp"
                 android:background="@drawable/select_button"
                 android:text="确定"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="17sp" />
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_above="@+id/positiveButton"
-                android:layout_marginBottom="50dp"
-                android:layout_toLeftOf="@+id/textView2"
-                android:src="@drawable/success" />
-
-            <TextView
-                android:id="@+id/textView2"
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/positiveButton"
-                android:layout_alignTop="@+id/imageView1"
-                android:layout_marginLeft="27dp"
-                 android:layout_marginTop="22dp"
-                android:text="当前合法用户是:"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="57dp"
+                android:ems="10"
+                android:hint="请输入相应的训练人" />
 
         </RelativeLayout>
 

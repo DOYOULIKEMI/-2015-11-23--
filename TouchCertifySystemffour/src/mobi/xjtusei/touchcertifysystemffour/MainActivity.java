@@ -40,6 +40,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
     private EditText nameInput;
+    private String practicename;
     private int totalTrainNum;//总共需要训练的次数
     public static String username;
     private String handor;
@@ -166,33 +167,53 @@ public class MainActivity extends Activity {
             public void onClick(View v){
             	
             	//((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.approve_touch));
-//            	finish();//------------------------------------------------------------------------------><
-            	if(!UserInfo.hasTrained()){
-                    //如果没有训练过
-                    Toast.makeText(MainActivity.this, getString(R.string.error_gettrainedinfo), Toast.LENGTH_SHORT).show();
-                 }else{   
-                	 LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
-					 View layout=inflater.inflate(R.layout.testhint,null);					
-					 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                	 TextView hintname=(TextView)layout.findViewById(R.id.textView2);
-                	 hintname.setText("当前合法用户为："+UserInfo.getDefautUser());
-                	 Button positive_btn=(Button) layout.findViewById(R.id.positiveButton);
-                	 builder.setView(layout);
-                	 builder.setCancelable(false);
-	 				final AlertDialog alg=builder.create();
-				     alg.show();	
-                     positive_btn.setOnClickListener(new OnClickListener(){
-                             @Override
-                             public void onClick(View v) {
-                            	 alg.cancel();
-                            	 Intent intent = new Intent();
-                            	 intent.setClass(MainActivity.this, ApproveActivity.class);
-                            	 startActivity(intent);                             
-                             }
-                         }
-                     ) ; 
-                                     	 
-                 }                 
+//                            
+            	//((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.practice_touch));
+                nameInput = new EditText(MainActivity.this);
+           	    LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+			    View layout=inflater.inflate(R.layout.testhint,null);					
+			    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+			    //nameInput=(EditText)layout.findViewById(R.id.editText1);
+           	    autoTv = (AutoCompleteTextView)layout.findViewById(R.id.autoCompleteTextView1);
+           	    initAutoComplete("history22",autoTv);  
+			    Button positive_btn=(Button) layout.findViewById(R.id.positiveButton);
+				Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
+			   // nameInput.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+			    builder.setView(layout);
+           	    builder.setCancelable(false);
+				final AlertDialog alg=builder.create();
+			    alg.show();	
+			    positive_btn.setOnClickListener(new OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                        	alg.cancel();
+                        	saveHistory("history22",autoTv); 
+                            String username1 = autoTv.getText().toString();
+                            try {
+                                practicename= idtoname(username1);
+                                Intent intent = new Intent();
+                           	    intent.setClass(MainActivity.this, ApproveActivity.class);
+                           	    startActivity(intent);                  
+                            } catch (Exception e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                            if(username.equals("")){
+                                Toast.makeText(MainActivity.this, getString(R.string.username_empty), Toast.LENGTH_SHORT).show();
+                            }
+                    
+                        }
+                    }
+                )  ;
+			    negative_btn.setOnClickListener(new OnClickListener(){
+					@Override
+					public void onClick(View v) {
+						alg.cancel();
+					}});
+                
+                
+                
             }
         });
         //设置界面跳转
@@ -392,7 +413,7 @@ public class MainActivity extends Activity {
        }
     private void initAutoComplete(String field,AutoCompleteTextView auto) {  
         SharedPreferences sp = getSharedPreferences("network_url", 0);  
-        String longhistory = sp.getString("history", "nothing");  
+        String longhistory = sp.getString(field, "nothing");  
         String[]  hisArrays = longhistory.split(",");  
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,  
                 R.layout.line_list, hisArrays);  
