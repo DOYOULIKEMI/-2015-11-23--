@@ -40,7 +40,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
     private EditText nameInput;
-    private String practicename;
+    public static String practicename;
     private int totalTrainNum;//总共需要训练的次数
     public static String username;
     private String handor;

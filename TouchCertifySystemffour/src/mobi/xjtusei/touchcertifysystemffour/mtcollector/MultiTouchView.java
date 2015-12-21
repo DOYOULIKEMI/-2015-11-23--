@@ -578,8 +578,16 @@ public class MultiTouchView extends CGView {
 						        	   loader.interrupt();*/
 						        	    long time = System.currentTimeMillis();
 						        	    String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
-										String newPath = sdcard+"/CertSystemData4/SaveData/"+UserInfo.getDefautUser()+"/合法用户正常进入+"+time;						
-										copyFolder(oldPath, newPath);
+						        	    String newPath=" ";
+						        	    if(MainActivity.practicename==UserInfo.getDefautUser())
+										{
+						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/合法用户正常进入+"+time;						
+										}
+						        	    else
+						        	    {
+						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/非法用户异常进入"+UserInfo.getDefautUser()+"的模型+"+time;	
+										}
+						        	    copyFolder(oldPath, newPath);
 						        	   try {
 						        		   
 						        	    alg.cancel();
@@ -660,9 +668,22 @@ public class MultiTouchView extends CGView {
 						           public void onClick(View v) {
 /*						        	   UnInit();
 						        	   loader.interrupt();*/
+						        	   long time = System.currentTimeMillis();
+						        	    String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
+						        	    String newPath=" ";
+						        	    if(MainActivity.practicename==UserInfo.getDefautUser())
+										{
+						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/合法用户无法进入+"+time;						
+										}
+						        	    else
+						        	    {
+						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/非法用户正常拒绝"+UserInfo.getDefautUser()+"的模型+"+time;	
+										}
+						        	    copyFolder(oldPath, newPath);
 						        	   try {
+						      		   
 						        		   alg.dismiss();
-										restart();
+										   restart();
 									} catch (Exception e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
