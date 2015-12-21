@@ -198,10 +198,7 @@ public class MainActivity extends Activity {
                             } catch (Exception e) {
                                 // TODO Auto-generated catch block
                                 e.printStackTrace();
-                            }
-                            if(username.equals("")){
-                                Toast.makeText(MainActivity.this, getString(R.string.username_empty), Toast.LENGTH_SHORT).show();
-                            }
+                            }                           
                     
                         }
                     }

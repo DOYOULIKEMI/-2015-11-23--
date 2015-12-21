@@ -561,7 +561,7 @@ public class MultiTouchView extends CGView {
 							LayoutInflater inflater = LayoutInflater.from(((Activity) MultiTouchView.this.getContext()));
 							View layout=inflater.inflate(R.layout.alertdialog_success,null);
 							Button positive_btn=(Button) layout.findViewById(R.id.positiveButton);
-							Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
+							//Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
 							AlertDialog.Builder builder = new AlertDialog.Builder(MultiTouchView.this.getContext());					
 							builder.setView(layout);
 							builder.setCancelable(false);
@@ -579,7 +579,7 @@ public class MultiTouchView extends CGView {
 						        	    long time = System.currentTimeMillis();
 						        	    String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
 						        	    String newPath=" ";
-						        	    if(MainActivity.practicename==UserInfo.getDefautUser())
+						        	    if(MainActivity.practicename.equalsIgnoreCase(UserInfo.getDefautUser()))
 										{
 						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/合法用户正常进入+"+time;						
 										}
@@ -599,50 +599,7 @@ public class MultiTouchView extends CGView {
 						           }
 						           
 						        });
-							        negative_btn.setOnClickListener(new OnClickListener(){
-									@Override
-									public void onClick(View v) {
-										// TODO Auto-generated method stub
-										alg.cancel();
-										AlertDialog.Builder builder2;
-										wrongUserNameInput = new EditText(MultiTouchView.this.getContext());
-										wrongUserNameInput.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
-										builder2 = new AlertDialog.Builder(MultiTouchView.this.getContext());
-								    	builder2.setTitle(R.string.username_empty)
-						                .setIcon(android.R.drawable.ic_dialog_info)  
-						                .setView(wrongUserNameInput)
-						                .setPositiveButton("确定", new DialogInterface.OnClickListener(){
-
-											@Override
-											public void onClick(DialogInterface dialog, int which) {
-												// TODO Auto-generated method stub
-												long time = System.currentTimeMillis();
-												String input = wrongUserNameInput.getText().toString();									
-												String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
-												String newPath = sdcard+"/CertSystemData4/SaveData/"+UserInfo.getDefautUser()+"/非法用户"+input+"进入+"+time;
-												copyFolder(oldPath, newPath);
-												try {
-													restart();
-												} catch (Exception e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												}
-											}
-						                })
-						                .setNegativeButton("取消",new DialogInterface.OnClickListener(){
-						                	@Override
-											public void onClick(DialogInterface dialog, int which){
-						                		try {
-													restart();
-												} catch (Exception e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												}
-						                	}
-						                })
-						                .show();
-									}
-								});
+							       
 								
 						}else{
 							title = R.string.info_testfail;
@@ -654,7 +611,7 @@ public class MultiTouchView extends CGView {
 							LayoutInflater inflater = LayoutInflater.from(((Activity) MultiTouchView.this.getContext()));
 							View layout=inflater.inflate(R.layout.activity_fail,null);
 							Button positive_btn=(Button) layout.findViewById(R.id.positiveButton);
-							Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
+							//Button negative_btn=(Button) layout.findViewById(R.id.negativeButton);
 							AlertDialog.Builder builder = new AlertDialog.Builder(MultiTouchView.this.getContext());					
 							builder.setView(layout);
 							builder.setCancelable(false);
@@ -670,8 +627,10 @@ public class MultiTouchView extends CGView {
 						        	   loader.interrupt();*/
 						        	   long time = System.currentTimeMillis();
 						        	    String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
-						        	    String newPath=" ";
-						        	    if(MainActivity.practicename==UserInfo.getDefautUser())
+						        	    String newPath=" ";						        	    
+						        	    Log.i("asdasdasdasdasdasd",UserInfo.getDefautUser());
+						        	    Log.i("asdasdasdasdasdasd",MainActivity.practicename);
+						        	    if(MainActivity.practicename.equalsIgnoreCase(UserInfo.getDefautUser()))
 										{
 						        	    	 newPath = sdcard+"/CertSystemData4/SaveData/"+MainActivity.practicename+"/合法用户无法进入+"+time;						
 										}
@@ -691,51 +650,7 @@ public class MultiTouchView extends CGView {
 						           }
 						           
 						        });
-							 negative_btn.setOnClickListener(new OnClickListener(){
-									@Override
-									public void onClick(View v) {
-										// TODO Auto-generated method stub
-										alg.dismiss();
-										AlertDialog.Builder builder2;
-										wrongUserNameInput = new EditText(MultiTouchView.this.getContext());
-										builder2 = new AlertDialog.Builder(MultiTouchView.this.getContext());
-								    	builder2.setTitle(R.string.username_empty)
-						                .setIcon(android.R.drawable.ic_dialog_info)  
-						                .setView(wrongUserNameInput)
-						                .setPositiveButton("确定", new DialogInterface.OnClickListener(){
-											@Override
-											public void onClick(DialogInterface dialog, int which) {
-												// TODO Auto-generated method stub
-												long time = System.currentTimeMillis();
-												String input = wrongUserNameInput.getText().toString();
-												String oldPath = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT";
-												String newPath = sdcard+"/CertSystemData4/SaveData/"+input+"/合法用户被拒+"+time;
-												String oldPath1 = sdcard+"/CertSystemData4/CDataPocessing/TrainTxT/train.txt";
-												String newPath1 = sdcard+"/CertSystemData4/trainData_fixed/"+input+"/train.txt";
-												copyFolder(oldPath, newPath);
-												try {
-													restart();
-												} catch (Exception e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												}//CopySingleFile(oldPath1, newPath1);
-											}
-						                })
-						                .setNegativeButton("取消",new DialogInterface.OnClickListener(){
-											@Override
-											public void onClick(DialogInterface dialog, int which) {
-												// TODO Auto-generated method stub					
-												try {
-													restart();
-												} catch (Exception e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												}//CopySingleFile(oldPath1, newPath1);
-											}
-						                })
-						                .show();
-									}
-								});
+							 
 								
 						}
 						

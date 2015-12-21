@@ -47,29 +47,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="50dp"
                 android:src="@drawable/success" />
-            <Button
-                android:id="@+id/positiveButton"
-                android:layout_width="130dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="80dp"
-                android:layout_alignTop="@+id/negativeButton"
-                android:background="@drawable/select_button"
-                android:text="确定"
-                 android:textSize="20sp"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/negativeButton"
-                android:layout_width="130dp"
-                android:layout_height="40dp"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/positiveButton"
-                android:layout_marginBottom="27dp"
-                android:layout_marginLeft="80dp"
-                android:background="@drawable/select_button"
-                android:text="报错" 
-                android:textSize="20sp"
-                android:textColor="@color/white" />
 
 
             <TextView
@@ -84,7 +61,17 @@
                 android:textStyle="bold" 
                 android:textSize="35sp" />
 
-           
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="21dp"
+                android:background="@drawable/select_button"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
