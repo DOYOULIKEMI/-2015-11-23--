@@ -319,6 +319,7 @@ public class MainActivity extends Activity {
         intent.putExtra("type", "test");
         intent.putExtra("direction", handor);
         startActivity(intent);      
+
     }
     
     public String idtoname(final String id) throws Exception{
@@ -392,13 +393,13 @@ public class MainActivity extends Activity {
         String longhistory = sp.getString("history", "nothing");  
         String[]  hisArrays = longhistory.split(",");  
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,  
-                android.R.layout.simple_dropdown_item_1line, hisArrays);  
+                R.layout.input_alertdialog, hisArrays);  
         //只保留最近的50条的记录  
         if(hisArrays.length > 50){  
             String[] newArrays = new String[50];  
             System.arraycopy(hisArrays, 0, newArrays, 0, 50);  
             adapter = new ArrayAdapter<String>(this,  
-                    android.R.layout.simple_dropdown_item_1line, newArrays);  
+            		 R.layout.input_alertdialog, newArrays);  
         }  
         auto.setAdapter(adapter);  
         auto.setDropDownHeight(350);  
