@@ -49,6 +49,7 @@ public class MainActivity extends Activity {
     private AutoCompleteTextView autoTv;
     @SuppressLint("NewApi")
     @Override
+    protect11;
     protected void onCreate(Bundle savedInstanceState) {
         int version = UserInfo.getAndroidSDKVersion();
         if (version>=15) 
